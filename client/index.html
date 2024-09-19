@@ -10,9 +10,15 @@
     <script type="module" src="./main.js" defer></script>
   </head>
   <body>
-    <!-- we need a form to collect user data
-!remember the name attribute!!
-
-  we need a container for user feedback-->
+    <h1>Guestbook</h1>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" name="name" required />
+      <label for="date_of_visit">Date of visit</label>
+      <input type="date" name="date_of_visit" required />
+      <label for="review">review</label>
+      <input type="text" name="review" required />
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
