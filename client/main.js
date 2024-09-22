@@ -2,7 +2,8 @@
 // select the form and select feedback container
 const guestForm = document.getElementById(`guest-form`);
 const feedbackContainer = document.getElementById("feedback-container");
-const hostURL = "https://week4-assignment-guestbook-q1h7.onrender.com/";
+// const hostURL = "http://localhost:8080";
+const hostURL = "https://week4-assignment-guestbook-q1h7.onrender.com";
 // FORM
 // we need an event to submit the form data
 // event handler
