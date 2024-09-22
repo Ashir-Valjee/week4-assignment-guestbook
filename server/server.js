@@ -42,6 +42,9 @@ app.post("/add-data", function (request, response) {
   const bodyData = request.body;
 
   console.log(bodyData);
+  response.json({
+    message: "Body data received",
+  });
 
   db.query(
     `INSERT INTO guests4 (name,date1,review,email)
