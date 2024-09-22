@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 // i need to set up a PORT for my app to listen
-const PORT = 8080;
+const PORT = 8082;
 app.listen(PORT, () => {
   console.log(`server is running in PORT ${PORT}`);
 });

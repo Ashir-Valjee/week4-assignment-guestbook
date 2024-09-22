@@ -3,7 +3,7 @@
 const guestForm = document.getElementById(`guest-form`);
 const feedbackContainer = document.getElementById("feedback-container");
 // const hostURL = "http://localhost:8080";
-const hostURL = "https://week4-assignment-guestbook-q1h7.onrender.com";
+// const hostURL = "https://week4-assignment-guestbook-q1h7.onrender.com";
 // FORM
 // we need an event to submit the form data
 // event handler
@@ -16,7 +16,7 @@ function handleSubmit(event) {
   const formData = new FormData(guestForm);
   const formValues = Object.fromEntries(formData);
   console.log(formValues);
-  fetch(`${hostURL}/add-data`, {
+  fetch("https://week4-assignment-guestbook-q1h7.onrender.com/add-data", {
     method: "POST",
 
     headers: { "Content-Type": "application/json" },
@@ -47,7 +47,9 @@ guestForm.addEventListener("submit", handleSubmit);
 // wrangle data if neccesary
 
 async function getFeedback() {
-  const result = await fetch(`${hostURL}/get-feedback`);
+  const result = await fetch(
+    "https://week4-assignment-guestbook-q1h7.onrender.com/get-feedback"
+  );
   const data = await result.json();
   console.log(data);
   return data;
