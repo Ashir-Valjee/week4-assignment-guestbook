@@ -38,8 +38,33 @@ app.get("/", (request, response) => {
 // you need a route to READ database data
 // you need a route to CREATE or ADD data
 //! in your CREATE route,  the request.body is an object that represents the form data coming from your client
+app.post("/add-data", function (request, response) {
+  const bodyData = request.body;
+
+  console.log(bodyData);
+
+  db.query(
+    `INSERT INTO guests4 (name,date1,review,email)
+  VALUES ($1,$2,$3,$4)`,
+    [
+      bodyData.formValues.name,
+      bodyData.formValues.date1,
+      bodyData.formValues.review,
+      bodyData.formValues.email,
+    ]
+  );
+});
 
 // you need to use SQL queries and parameters in these routes
+
+app.get("/get-feedback", async (request, response) => {
+  // response.json({
+  //   message: "you are looking at my new get endpoint. how rude",
+  // });
+
+  const query = await db.query(`SELECT * FROM guests4`);
+  response.json(query.rows);
+});
 
 // =============================
 
@@ -48,17 +73,17 @@ app.get("/", (request, response) => {
 // ============================
 // for this assignment the minimum you need is one table to store feedback
 
-app.get("/guests", async (request, response) => {
-  const query = await db.query(`SELECT * FROM guests`);
+// app.get("/guests", async (request, response) => {
+//   const query = await db.query(`SELECT * FROM guests`);
 
-  // we wrangle the query to get rows
-  response.json(query.rows);
-  console.log(query);
-});
+//   // we wrangle the query to get rows
+//   response.json(query.rows);
+//   console.log(query);
+// });
 
-// whenever you need to specify data in your query do not write data directly. Use a parameter to replace
-// the data
-app.get("/guests2", async function (request, response) {
-  const query = await db.query(`SELECT * FROM guests WHERE name=$1`, ["James"]);
-  response.json(query.rows);
-});
+// // whenever you need to specify data in your query do not write data directly. Use a parameter to replace
+// // the data
+// app.get("/guests2", async function (request, response) {
+//   const query = await db.query(`SELECT * FROM guests WHERE name=$1`, ["James"]);
+//   response.json(query.rows);
+// });

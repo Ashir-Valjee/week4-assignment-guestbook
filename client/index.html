@@ -2,23 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="./public/favicon.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
     <title>Guestbook</title>
     <link rel="stylesheet" href="./style.css" />
 
     <script type="module" src="./main.js" defer></script>
   </head>
   <body>
-    <h1>Guestbook</h1>
-    <form>
-      <label for="name">Name</label>
-      <input type="text" name="name" required />
-      <label for="date_of_visit">Date of visit</label>
-      <input type="date" name="date_of_visit" required />
-      <label for="review">review</label>
-      <input type="text" name="review" required />
-      <button type="submit">Submit</button>
-    </form>
+    <main id="main-container">
+      <header>
+        <div id="title-container">
+          <img id="title-pic" src="./public/header1.svg" />
+          <h1>Guestbook</h1>
+          <img id="title-pic" src="./public/header1.svg" />
+        </div>
+      </header>
+      <section id="form-container">
+        <form id="guest-form">
+          <label for="name">Name</label>
+          <input type="text" name="name" required />
+          <label for="date1">Date of visit</label>
+          <input type="date" name="date1" required />
+          <label for="review">review</label>
+          <textarea type="text" name="review" required></textarea>
+          <label for="email">email</label>
+          <input type="email" name="email" required />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="feedback-container"></section>
+    </main>
   </body>
 </html>
